@@ -17,8 +17,8 @@
 
 | File | Description |
 | :--- | :--- |
-| 📓 **[EDA_SkyGeni_Challenge.ipynb](./EDA_SkyGeni_Challenge.ipynb)** | **Part 2:** Exploratory Data Analysis. Visualizing the "Q1 Hangover" and Regional performance gaps. |
-| 🤖 **[SkyGeni_Deal_Risk_Scoring_Model.ipynb](./SkyGeni_Deal_Risk_Scoring_Model.ipynb)** | **Part 3:** The Machine Learning pipeline. Pre-processing, Training (Random Forest), and Risk Scoring logic. |
+| 📓 **[EDA_SkyGeni_Challenge.ipynb](./EDA_SkyGeni_Challenge.ipynb)** | **Part 2:** Exploratory Data Analysis. Visualizing the win rate trends and regional performance gaps. |
+| 🤖 **[SkyGeni_Deal_Risk_Scoring_Model.ipynb](./SkyGeni_Deal_Risk_Scoring_Model.ipynb)** | **Part 3:** The Machine Learning model. Pre-processing, Training (Random Forest), and Risk Scoring logic. |
 | 📄 **[Final Solution PDF](./SkyGeni_Sales_Intelligence_Challenge_Solution.pdf)** | **Full Report:** The business problem, narrative, model, system design, and final recommendations. |
 | 📊 **[skygeni_sales_data.csv](./skygeni_sales_data.csv)** | **Dataset:** The data used for this analysis. |
 
