@@ -38,7 +38,7 @@ Using Python (Pandas/Seaborn/Matplotlib), I uncovered three critical patterns:
 ### Part 3: The Decision Engine (ML model)
 To address the "Zombie Deal" problem, I built a **Deal Risk Scoring Engine**.
 * **Model Choice:** **Random Forest Classifier**. Selected for its ability to capture non-linear relationships (e.g., how "High Deal Value" is good, but "High Value + Stagnation" is fatal).
-* **Strategy:** We implemented a **Time-Based Split** (Train on 2023, Test on Q1 2024) to simulate real-world conditions and prevent data leakage.
+* **Strategy:** Implemented a **Time-Based Split** (Train on 2023, Test on Q1 2024) to simulate real-world conditions and prevent data leakage.
 * **Output:** A probability score (0-100%) for every deal, flagging those with **>75% Risk** for immediate executive intervention.
 
 ### Part 4: Mini System Design
