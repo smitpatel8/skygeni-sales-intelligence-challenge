@@ -48,7 +48,7 @@ If SkyGeni were to productize this, it would be a SaaS layer sitting on top of C
 
 No model is perfect. Here are the honest limitations and future improvements for this solution:
 
-* **Weakest Assumption:** In Part 1, I initially assumed Marketing was at fault. The data proved me wrong—it was a **Closing problem**.
+* **Weakest Assumption:** In Part 1, I initially assumed Marketing was at fault. The data proved me wrong, it was a **Closing problem**.
 * **Production Risk:** Real-world CRMs are messy, the current One-Hot Encoding approach could fail. A robust production version would need a **Schema Mapping Layer**.
 * **Future Improvement:** I would build a feedback button in the alert to collect outcome data.
 * **Area of Least Confidence:** I selected a **75% risk score** as the cutoff for alerts. Whether this is mathematically optimal point is debatable. In a real deployment, I would first run an **A/B Test** to find the optimal cutoff.
