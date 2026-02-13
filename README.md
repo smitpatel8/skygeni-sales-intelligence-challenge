@@ -19,20 +19,20 @@
 | :--- | :--- |
 | 📓 **[EDA_SkyGeni_Challenge.ipynb](./EDA_SkyGeni_Challenge.ipynb)** | **Part 2:** Exploratory Data Analysis. Visualizing the "Q1 Hangover" and Regional performance gaps. |
 | 🤖 **[SkyGeni_Deal_Risk_Scoring_Model.ipynb](./SkyGeni_Deal_Risk_Scoring_Model.ipynb)** | **Part 3:** The Machine Learning pipeline. Pre-processing, Training (Random Forest), and Risk Scoring logic. |
-| 📄 **[Solution PDF](./SkyGeni_Sales_Intelligence_Challenge_Solution.pdf)** | **Full Report:** The business narrative, system design, and final recommendations. |
-| 📊 **[skygeni_sales_data.csv](./skygeni_sales_data.csv)** | **Dataset:** The raw anonymized CRM data used for this analysis. |
+| 📄 **[Solution PDF](./SkyGeni_Sales_Intelligence_Challenge_Solution.pdf)** | **Full Report:** The business problem, narrative, model, system design, and final recommendations. |
+| 📊 **[skygeni_sales_data.csv](./skygeni_sales_data.csv)** | **Dataset:** The data used for this analysis. |
 
 ---
 
 ## 🔍 Project Walkthrough & Approach
 
 ### Part 1: Problem Framing (The Pivot)
-Initially, I hypothesized the core issue was a "Quantity vs. Quality" disconnect (Marketing sending bad leads). However, initial data exploration revealed a **"Last Mile" problem**: deals were progressing deep into the funnel (Negotiation stage) before stalling. This pivoted the focus from Lead Gen to **Sales Execution & Closing**.
+Initially, I hypothesized the core issue was a "Quantity vs. Quality" disconnect (Marketing sending bad leads). However, initial data exploration revealed a **"Deal Closing" problem**: deals were progressing deep into the funnel before stalling. This pivoted the focus from Lead Generation to **Sales Execution & Closing**.
 
 ### Part 2: Key Insights (EDA)
-Using Python (Pandas/Seaborn), I uncovered three critical patterns:
-1.  **The "Q1 Hangover" (Seasonality):** The Q1 drop was not a systemic failure but a recurring seasonal pattern visible in historical data (Fiscal Year reset effects).
-2.  **The "Western Collapse":** North America and Europe saw the sharpest declines, while APAC remained stable.
+Using Python (Pandas/Seaborn/Matplotlib), I uncovered three critical patterns:
+1.  **The "Seasonality" Factor:** The Q1 drop in the year 2024 was not a systemic failure but a recurring seasonal pattern visible in historical data (Fiscal Year reset effects).
+2.  **The "Western Collapse":** North America and Europe saw the sharpest declines, while APAC and India remained stable.
 3.  **Velocity Trap:** "Zombie Deals" (stagnant >60 days) had a <10% win rate but cluttered 40% of the pipeline.
 
 ### Part 3: The Decision Engine (Machine Learning)
@@ -42,4 +42,38 @@ To address the "Zombie Deal" problem, I built a **Deal Risk Scoring Engine**.
 * **Output:** A probability score (0-100%) for every deal, flagging those with **>75% Risk** for immediate executive intervention.
 
 ### Part 4: Mini System Design ("The Deal Guardian")
-If SkyGeni were to productize this, it would be a SaaS layer sitting on top of Salesforce.
+If SkyGeni were to productize this, it would be a SaaS layer sitting on top of CRM.
+
+### 🧠 Part 5: Critical Reflection
+
+No model is perfect. Here are the honest limitations and future improvements for this solution:
+
+* **Weakest Assumption (Root Cause Misdiagnosis):** In Part 1, I initially assumed Marketing was at fault. The data proved me wrong—it was a **Closing problem**. If we had acted on my initial gut instinct, we would have wasted resources fixing the wrong part of the funnel.
+* **Production Risk (Schema Drift):** Real-world CRMs are messy. If a sales operations manager renames a field (e.g., "Stage 2: Demo" $\to$ "Stage 2: Discovery"), the current One-Hot Encoding pipeline would silently fail. A robust production version would need a **Schema Mapping Layer**.
+* **Future Improvement (The Feedback Loop):** Currently, the system is "Fire and Forget." I would build a feedback button in the alert ("Did this save the deal?") to collect outcome data. We need this ground truth to retrain the model, turning it from a static predictor into a **self-improving system**.
+* **Area of Least Confidence (The Threshold):** I selected a **75% risk score** as the cutoff for alerts. I am least confident that this is the mathematically optimal point. In a real deployment, I would run an **A/B Test** (e.g., Alerting at 70% vs. 80%) to find the "sweet spot" between missing risks and spamming the VP.
+
+---
+
+## 💻 How to Run This Project
+
+### 1. Prerequisites
+Ensure you have **Python 3.8+** installed.
+
+### 2. Installation
+Clone the repository and install the required dependencies:
+
+git clone [https://github.com/smitpatel8/skygeni-sales-intelligence-challenge.git](https://github.com/smitpatel8/skygeni-sales-intelligence-challenge.git)
+
+### 3. Execution Order
+To reproduce the results, run the Jupyter Notebooks in Google Colab or any other IDE in the following order:
+
+1.  **`EDA_SkyGeni_Challenge.ipynb`**
+    * *Action:* Generates the visualizations for Win Rates, Seasonality, and Velocity.
+    * *Output:* Provides custom metrics and business insights.
+
+2.  **`SkyGeni_Deal_Risk_Scoring_Model.ipynb`**
+    * *Action:* Runs the Data Preprocessing, Feature Engineering, and trains the Random Forest Classifier.
+    * *Output:* Generates the "Deal Risk Score" for all open deals.
+
+---
