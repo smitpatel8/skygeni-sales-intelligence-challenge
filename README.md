@@ -6,7 +6,7 @@
 ---
 
 ## 📌 Executive Summary
-**The Problem:** SkyGeni’s CRO complains, "“Our win rate has dropped over the last two quarters, but pipeline volume looks healthy. I don’t know what exactly is going wrong or what my team should focus on.”
+**The Problem:** SkyGeni’s CRO complains, “Our win rate has dropped over the last two quarters, but pipeline volume looks healthy. I don’t know what exactly is going wrong or what my team should focus on.”
 
 
 **The Solution:** I identified and framed the core business problem faced here. Carried out detailed Exploratory Data Analysis (EDA) to get a clear picture. And later, I developed a **Deal Risk Scoring Engine** (Random Forest Classifier) that predicts the probability of failure for every open deal. This shifts the sales strategy from reactive to proactive, allowing leadership to intervene on high-value, high-risk "Zombie Deals" before they are lost.
