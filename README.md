@@ -1,16 +1,15 @@
 # 🚀 SkyGeni Sales Intelligence Challenge
 
-**"From Reactive Analysis to Proactive Intervention: A Data Science Case Study"**
-
 ### 📄 [**View Final Solution PDF**](./SkyGeni_Sales_Intelligence_Challenge_Solution.pdf) 
 *(Contains the comprehensive business report, answers to all case questions, and strategic recommendations)*
 
 ---
 
 ## 📌 Executive Summary
-**The Problem:** SkyGeni’s CRO noticed a sharp decline in Win Rates (from 40% to 28%) despite a healthy pipeline volume. The organization was paralyzed by "post-mortem" analysis—asking *why* deals were lost after the fact.
+**The Problem:** SkyGeni’s CRO complains, "“Our win rate has dropped over the last two quarters, but pipeline volume looks healthy. I don’t know what exactly is going wrong or what my team should focus on.”
 
-**The Solution:** I developed a **Deal Risk Scoring Engine** (Random Forest) that predicts the probability of failure for every open deal. This shifts the sales strategy from reactive to proactive, allowing leadership to intervene on high-value, high-risk "Zombie Deals" before they are lost.
+
+**The Solution:** I identified and framed the core business problem faced here. Carried out detailed Exploratory Data Analysis (EDA) to get a clear picture. And later, I developed a **Deal Risk Scoring Engine** (Random Forest Classifier) that predicts the probability of failure for every open deal. This shifts the sales strategy from reactive to proactive, allowing leadership to intervene on high-value, high-risk "Zombie Deals" before they are lost.
 
 ---
 
