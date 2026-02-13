@@ -35,23 +35,23 @@ Using Python (Pandas/Seaborn/Matplotlib), I uncovered three critical patterns:
 2.  **The "Western Collapse":** North America and Europe saw the sharpest declines, while APAC and India remained stable.
 3.  **Velocity Trap:** "Zombie Deals" (stagnant >60 days) had a <10% win rate but cluttered 40% of the pipeline.
 
-### Part 3: The Decision Engine (Machine Learning)
+### Part 3: The Decision Engine (ML model)
 To address the "Zombie Deal" problem, I built a **Deal Risk Scoring Engine**.
 * **Model Choice:** **Random Forest Classifier**. Selected for its ability to capture non-linear relationships (e.g., how "High Deal Value" is good, but "High Value + Stagnation" is fatal).
 * **Strategy:** We implemented a **Time-Based Split** (Train on 2023, Test on Q1 2024) to simulate real-world conditions and prevent data leakage.
 * **Output:** A probability score (0-100%) for every deal, flagging those with **>75% Risk** for immediate executive intervention.
 
-### Part 4: Mini System Design ("The Deal Guardian")
+### Part 4: Mini System Design
 If SkyGeni were to productize this, it would be a SaaS layer sitting on top of CRM.
 
 ### 🧠 Part 5: Critical Reflection
 
 No model is perfect. Here are the honest limitations and future improvements for this solution:
 
-* **Weakest Assumption (Root Cause Misdiagnosis):** In Part 1, I initially assumed Marketing was at fault. The data proved me wrong—it was a **Closing problem**. If we had acted on my initial gut instinct, we would have wasted resources fixing the wrong part of the funnel.
-* **Production Risk (Schema Drift):** Real-world CRMs are messy. If a sales operations manager renames a field (e.g., "Stage 2: Demo" $\to$ "Stage 2: Discovery"), the current One-Hot Encoding pipeline would silently fail. A robust production version would need a **Schema Mapping Layer**.
-* **Future Improvement (The Feedback Loop):** Currently, the system is "Fire and Forget." I would build a feedback button in the alert ("Did this save the deal?") to collect outcome data. We need this ground truth to retrain the model, turning it from a static predictor into a **self-improving system**.
-* **Area of Least Confidence (The Threshold):** I selected a **75% risk score** as the cutoff for alerts. I am least confident that this is the mathematically optimal point. In a real deployment, I would run an **A/B Test** (e.g., Alerting at 70% vs. 80%) to find the "sweet spot" between missing risks and spamming the VP.
+* **Weakest Assumption:** In Part 1, I initially assumed Marketing was at fault. The data proved me wrong—it was a **Closing problem**.
+* **Production Risk:** Real-world CRMs are messy, the current One-Hot Encoding approach could fail. A robust production version would need a **Schema Mapping Layer**.
+* **Future Improvement:** I would build a feedback button in the alert to collect outcome data.
+* **Area of Least Confidence:** I selected a **75% risk score** as the cutoff for alerts. Whether this is mathematically optimal point is debatable. In a real deployment, I would first run an **A/B Test** to find the optimal cutoff.
 
 ---
 
